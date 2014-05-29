@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Haha</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+        <sciprt src="{% static 'bootstrap/js/bootstrap.min.js' %}"></sciprt>
+    </head>
+    <body>
+        <h1>Hi welcome!</h1>
+        {% if latest %}
+    <ul class="list-group">
+        {% for poll in latest %}
+        <li class="list-group-item"><a href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h2>No poll available</h2>
+    {% endif %}
+
+    </body>
+</html>

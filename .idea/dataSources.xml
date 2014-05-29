@@ -5,7 +5,7 @@
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/travel</jdbc-url>
-      <user-name>root</user-name>
+      <user-name>d7688326</user-name>
       <user-password>df9ddf9cdf92df92df99df98df9cdf92df98df9c</user-password>
       <libraries />
     </data-source>

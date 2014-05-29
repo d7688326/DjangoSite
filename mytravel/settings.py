@@ -60,7 +60,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'travel',
-        'USER':'root',
+        'USER':'d7688326',
         'PASSWORD':'7688326826',
     }
 }
@@ -84,6 +84,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT= os.path.join(BASE_DIR,STATIC_URL.replace("/",""))
+
 TEMPLATE_DIRS =(
-    'mytravel/templates'
-)_
+    'polls/templates',
+
+)
+
+# STATIC_ROOT=os.path.join(BASE_DIR, 'polls/')
+
+STATICFILES_DIRS = (
+    MEDIA_ROOT,
+)
