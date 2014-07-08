@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block headline %}
+    <hr>
+{% endblock %}
+{% block articlelist %}
+    <form action="/accounts/edit_profile/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul>
+        {{ form |crispy }}
+    </ul>
+        <input type="submit"  value="Update"/>
+    </form>
+{% endblock %}
