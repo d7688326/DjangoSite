@@ -1,9 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{#load template tags#}
+{% load article_tags %}
+{% block articlelist %}
 
-</body>
-</html>
+
+
+
+{% for article in articles %}
+     <div class="row">
+        <div class="col-md-4">
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.body |lower |article_shorten_body:5 }}</p>
+          <p><a class="btn btn-default" href="/article/get/{{ article.id }}" role="button">View details &raquo;</a></p>
+        </div>
+
+      </div>
+{% endfor %}
+
+{% endblock %}

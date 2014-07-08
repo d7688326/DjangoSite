@@ -30,11 +30,12 @@
     <hr>
 {% endblock %}
 {% block articlelist %}
+    {% block display_bookmark %}
     <ul class="nav nav-pills nav-justified">
           <li class="active"><a href="/accounts/profile/display">Bookmarks</a></li>
-          <li ><a href="/accounts/profile/myworks">Articles</a></li>
           <li><a href="#">Friends</a></li>
     </ul>
+        {% endblock %}
     <hr/>
  <div class="row">
  {% for article in articles %}

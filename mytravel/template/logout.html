@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block headline  %}
+<h1>Logged out!</h1>
+<small>click <a href="/accounts/login">here</a> to login</small>
 
-</body>
-</html>
+{% endblock %}
+{% block articlelist %}<hr>{% endblock %}

@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block headline  %}
 
-</body>
-</html>
+    <form class="form-horizontal" role="form" action="/accounts/auth/" method="post">{% csrf_token %}
+        <div class="form-group">
+            <label for="username">username</label>
+            <input type="text" class="form-control" name="username" id="username"/>
+        </div>
+        <div class="form-group">
+            <label for="password">password</label>
+            <input type="password" class="form-control" name="password" id="password"/>
+        </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+            
+{% endblock %}
+{% block articlelist %}<hr>{% endblock %}

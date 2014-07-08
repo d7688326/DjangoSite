@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block headline  %}
+<h1>Sorry, not a valid username or password!</h1>
+<small>click <a href="/accounts/login">here</a> to return</small>
 
-</body>
-</html>
+{% endblock %}
+{% block articlelist %}<hr>{% endblock %}

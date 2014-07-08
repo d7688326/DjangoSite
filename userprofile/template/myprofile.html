@@ -1,9 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'author_profile.html' %}
+{% block headline %}
 
-</body>
-</html>
+        <div class="row userinfo">
+
+        <img src="{{ profile.photo.url }}" alt="" height="auto" width="300px" class="col-md-4" />
+        <h1 class="col-md-4 col-md-offset-1">{{ profile.user }}</h1>
+        <h4 class="col-md-4 col-md-offset-1">{{ profile.intro }}</h4>
+
+        </div>
+
+    <hr>
+    {% if user.username == profile.user.username %}
+    <div class="row">
+        <button class="btn btn-hg btn-primary col-md-5" >
+        <a href="/accounts/edit_profile/" class="profile_link">
+            edit profile
+        </a>
+    </button>
+
+    <button class="btn btn-hg btn-primary col-md-5 col-md-offset-1"  >
+        <a href="/article/create" class="profile_link" >
+            create article
+        </a>
+    </button>
+    </div>
+
+    {% endif %}
+      <hr/>
+{% endblock %}
+
+{% block display_bookmark %}
+    <ul class="nav nav-pills nav-justified">
+          <li class="active"><a href="/accounts/profile/display">Bookmarks</a></li>
+          <li ><a href="/accounts/profile/myworks">Articles</a></li>
+          <li><a href="#">Friends</a></li>
+    </ul>
+{% endblock %}

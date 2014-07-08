@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for mytravel project.
 
@@ -8,9 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+SETTINGS_DIR = os.path.dirname(__file__)
+PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,6 +45,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'south',
+    'login',
+    'article',
+    'crispy_forms',
+    'tastypie',
+    'defusedxml',
+    'coverage',
+    'django.contrib.formtools',
+    'userprofile',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,7 +64,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mytravel.urls'
+ROOT_URLCONF ='mytravel.urls'
+
 
 WSGI_APPLICATION = 'mytravel.wsgi.application'
 
@@ -71,6 +87,11 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
+LOCALES =(
+    ('zh-cn', u'简体中文'),
+    ('zh-tw', u'繁體中文'),
+)
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -82,18 +103,28 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+STATIC_PATH= os.path.join(PROJECT_PATH,'static')
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT= os.path.join(BASE_DIR,STATIC_URL.replace("/",""))
+MEDIA_ROOT= os.path.join(PROJECT_PATH,'media')
+
+MEDIA_URL='/media/'
 
 TEMPLATE_DIRS =(
     'polls/templates',
+    'article/template',
+    'mytravel/template',
+    'userprofile/template'
 
 )
 
 # STATIC_ROOT=os.path.join(BASE_DIR, 'polls/')
 
 STATICFILES_DIRS = (
-    MEDIA_ROOT,
+    STATIC_PATH,
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+LOGIN_URL = '/accounts/login'

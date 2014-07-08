@@ -1,0 +1,9 @@
+{% if articles.count > 0 %}
+
+{% for article in articles %}
+    <li class="list-group-item"><a href="/article/get/{{ article.id }}/">{{ article.title }}</a></li>
+{% endfor %}
+
+{% else %}
+    <li class="list-group-item">No result</li>
+{% endif %}

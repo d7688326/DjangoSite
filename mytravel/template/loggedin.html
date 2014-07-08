@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block headline  %}
+<h1>Hello {{ full_name }}, Welcome</h1>
+<small>To log out, click <a href="/accounts/logout">here</a></small>
+<small>To view your profile, click <a href="/accounts/profile/display">here</a></small>
+{% endblock %}
+{% block articlelist %}<hr>{% endblock %}

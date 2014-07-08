@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block headline %}
+    <hr>
+{% endblock %}
+{% block articlelist %}
+    <form action="/article/add_comment/{{ article.id }}" method="post">
+    {% csrf_token %}
+    <ul>
+        {{ form |crispy }}
+    </ul>
+        <input type="submit" name="submit" value="Comment"/>
+    </form>
+{% endblock %}

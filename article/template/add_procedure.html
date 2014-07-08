@@ -1,9 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
 
-</body>
-</html>
+
+<!-- Modal -->
+{% load crispy_forms_tags %}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="/article/get/{{ article.id }}/" method="post" enctype="multipart/form-data">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">This step is:</h4>
+      </div>
+      <div class="modal-body">
+        {% csrf_token %}
+        <ul>
+            {{ form |crispy }}
+        </ul>
+
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-primary"  name="submit" value="GO!"/>
+      </div>
+          </form>
+    </div>
+  </div>
+
+</div>
